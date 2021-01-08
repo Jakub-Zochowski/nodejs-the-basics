@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-var readline = require('readline');
 
 const server = http.createServer((req, res) => {
     const url = req.url;
@@ -8,7 +7,7 @@ const server = http.createServer((req, res) => {
 
     const fileContent = fs.readFileSync('usernames.txt', 'utf8').toString();
     const usernames = fileContent.split('\n');
-
+    
     if (url === '/') {
         res.write('<html>');
         res.write('<head><title>Users</title></head>');
